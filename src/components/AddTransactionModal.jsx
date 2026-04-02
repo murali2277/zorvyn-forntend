@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import useStore from '../store/useStore';
 import { X } from 'lucide-react';
 
@@ -35,8 +36,8 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
     onClose();
   };
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-md animate-fade-in">
+  const modalContent = (
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-md animate-fade-in">
       <div className="glass-card w-full max-w-md p-8 animate-slide-up relative mt-[-5%] overflow-hidden">
         <button 
           onClick={onClose} 
@@ -63,7 +64,7 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
           
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-textMuted mb-2">Amount ($)</label>
+              <label className="block text-sm font-medium text-textMuted mb-2">Amount (₹)</label>
               <input 
                 type="number" 
                 required
@@ -124,13 +125,15 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
               type="submit"
               className="px-6 py-3 glass-accent font-bold"
             >
-              Save Transaction
+              Save
             </button>
           </div>
         </form>
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 };
 
 export default AddTransactionModal;

@@ -3,13 +3,20 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import useStore from '../../store/useStore';
 import { generateTrendData } from '../../data/mockData';
 
-const CustomTooltip = ({ active, payload, label }) => {
+const CustomTooltip = ({ active, payload, label, timeframe }) => {
   if (active && payload && payload.length) {
+    let dateStr = new Date(label).toLocaleDateString();
+    if (timeframe === 'monthly') {
+      dateStr = new Date(label).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    } else if (timeframe === 'yearly') {
+      dateStr = new Date(label).getFullYear().toString();
+    }
+
     return (
       <div className="bg-card border border-muted p-3 flex flex-col gap-1 rounded-lg shadow-lg text-sm">
-        <span className="text-textMuted">{new Date(label).toLocaleDateString()}</span>
+        <span className="text-textMuted">{dateStr}</span>
         <span className="font-semibold text-accent">
-          Balance: ${payload[0].value.toLocaleString()}
+          Balance: ₹{payload[0].value.toLocaleString()}
         </span>
       </div>
     );
@@ -17,12 +24,12 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-const BalanceChart = () => {
+const BalanceChart = ({ timeframe = 'daily' }) => {
   const transactions = useStore((state) => state.transactions);
   
   const chartData = useMemo(() => {
-    return generateTrendData(transactions);
-  }, [transactions]);
+    return generateTrendData(transactions, timeframe);
+  }, [transactions, timeframe]);
 
   if (chartData.length === 0) {
     return (
@@ -48,16 +55,21 @@ const BalanceChart = () => {
           fontSize={12} 
           tickLine={false} 
           axisLine={false}
-          tickFormatter={(val) => new Date(val).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+          tickFormatter={(val) => {
+            const date = new Date(val);
+            if (timeframe === 'yearly') return date.getFullYear().toString();
+            if (timeframe === 'monthly') return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+          }}
         />
         <YAxis 
           stroke="#9ca3af" 
           fontSize={12} 
           tickLine={false} 
           axisLine={false} 
-          tickFormatter={(val) => `$${val}`}
+          tickFormatter={(val) => `₹${val}`}
         />
-        <Tooltip content={<CustomTooltip />} />
+        <Tooltip content={<CustomTooltip timeframe={timeframe} />} />
         <Area 
           type="monotone" 
           dataKey="balance" 

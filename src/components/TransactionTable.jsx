@@ -97,7 +97,7 @@ const TransactionTable = () => {
           {role === 'admin' && (
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="glass-accent px-5 py-2 gap-2 font-bold text-sm"
+              className="glass-accent px-5 py-2 gap-2 font-bold text-sm !shadow-none"
             >
               <Plus className="w-4 h-4" /> Add
             </button>
@@ -126,7 +126,7 @@ const TransactionTable = () => {
                     <span className="glass-input px-3 py-1.5 text-xs font-semibold shadow-none">{tx.category}</span>
                   </td>
                   <td className={`px-6 py-4 text-right font-medium ${tx.type === 'income' ? 'text-green-500' : 'text-textPrimary'}`}>
-                    {tx.type === 'income' ? '+' : '-'}${tx.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                    {tx.type === 'income' ? '+' : '-'}₹{tx.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}
                   </td>
                   {role === 'admin' && (
                     <td className="px-6 py-4 text-center">

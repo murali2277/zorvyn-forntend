@@ -16,7 +16,7 @@ const SummaryCard = ({ title, amount, icon, highlight = false }) => {
       </div>
       <div>
         <h3 className="text-3xl font-semibold tracking-tight">
-          ${amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+          ₹{amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
         </h3>
       </div>
     </div>

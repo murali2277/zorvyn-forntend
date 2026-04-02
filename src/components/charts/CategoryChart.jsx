@@ -10,7 +10,7 @@ const CustomTooltip = ({ active, payload }) => {
       <div className="bg-card border border-muted p-2 rounded-lg shadow-lg text-sm flex gap-2 items-center">
         <div className="w-3 h-3 rounded-full" style={{ backgroundColor: payload[0].payload.fill }}></div>
         <span className="text-textMuted">{payload[0].name}:</span>
-        <span className="font-semibold text-textPrimary">${payload[0].value.toLocaleString()}</span>
+        <span className="font-semibold text-textPrimary">₹{payload[0].value.toLocaleString()}</span>
       </div>
     );
   }
@@ -61,7 +61,7 @@ const CategoryChart = () => {
         <Tooltip content={<CustomTooltip />} />
         <Legend 
           verticalAlign="bottom" 
-          height={36} 
+          wrapperStyle={{ paddingTop: '10px', paddingBottom: '10px' }}
           iconType="circle"
           formatter={(value) => <span className="text-textMuted text-xs">{value}</span>}
         />
