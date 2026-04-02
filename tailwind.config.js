@@ -15,6 +15,10 @@ export default {
         textPrimary: 'var(--text-primary)',
         textMuted: 'var(--text-muted)',
       },
+      boxShadow: {
+        neu: 'var(--neu-shadow)',
+        'neu-inset': 'var(--neu-shadow-inset)',
+      },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out forwards',
         'slide-up': 'slideUp 0.5s ease-out forwards',

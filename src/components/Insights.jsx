@@ -35,32 +35,32 @@ const Insights = () => {
       <h2 className="text-xl font-medium mb-6">Quick Insights</h2>
       
       <div className="space-y-6 flex-1">
-        <div className="flex items-start gap-4">
-          <div className="p-3 bg-background rounded-xl border border-muted text-accent">
+        <div className="flex items-start gap-5">
+          <div className="p-4 glass-icon-well shadow-sm text-accent">
             <TrendingUp className="w-5 h-5" />
           </div>
-          <div>
+          <div className="mt-1">
             <h4 className="text-sm font-medium text-textMuted">Top Expense Category</h4>
-            <p className="text-lg font-semibold mt-1">{insightData.highestCategory}</p>
+            <p className="text-xl font-semibold mt-1">{insightData.highestCategory}</p>
           </div>
         </div>
 
-        <div className="flex items-start gap-4">
-          <div className="p-3 bg-background rounded-xl border border-muted text-green-500">
+        <div className="flex items-start gap-5">
+          <div className="p-4 glass-icon-well shadow-sm text-green-500">
             <PiggyBank className="w-5 h-5" />
           </div>
-          <div>
+          <div className="mt-1">
             <h4 className="text-sm font-medium text-textMuted">Savings Rate</h4>
-            <p className="text-lg font-semibold mt-1">{insightData.savingsRate}%</p>
+            <p className="text-xl font-semibold mt-1">{insightData.savingsRate}%</p>
             <p className="text-xs text-textMuted mt-1">of total income saved</p>
           </div>
         </div>
 
-        <div className="flex items-start gap-4">
-          <div className="p-3 bg-background rounded-xl border border-muted text-blue-400">
+        <div className="flex items-start gap-5">
+          <div className="p-4 glass-icon-well shadow-sm text-blue-400">
             <Lightbulb className="w-5 h-5" />
           </div>
-          <div>
+          <div className="mt-1">
             <h4 className="text-sm font-medium text-textMuted">Recommendation</h4>
             <p className="text-sm leading-relaxed mt-1 text-textPrimary">
               Consider reducing your budget for <strong>{insightData.highestCategory}</strong> to improve your savings rate this month.

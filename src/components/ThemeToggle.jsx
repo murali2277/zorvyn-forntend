@@ -8,7 +8,7 @@ const ThemeToggle = () => {
   return (
     <button 
       onClick={toggleTheme}
-      className="p-2 rounded-xl flex items-center justify-center bg-card border border-muted hover:border-accent hover:text-accent transition-colors"
+      className="p-3 ml-2 rounded-full glass-layer border border-glass-border hover:bg-glass-hover transition-all active:scale-95"
       aria-label="Toggle theme"
       title="Toggle Dark/Light Mode"
     >

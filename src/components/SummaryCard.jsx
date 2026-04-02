@@ -4,12 +4,13 @@ import clsx from 'clsx';
 const SummaryCard = ({ title, amount, icon, highlight = false }) => {
   return (
     <div className={clsx(
-      "p-6 rounded-2xl border flex flex-col justify-between transition-all duration-300 hover:shadow-md",
-      highlight ? "border-accent bg-card" : "border-muted bg-card"
+      "p-6 flex flex-col justify-between",
+      "glass-card hover:-translate-y-1 transition-transform duration-300",
+      highlight && "text-accent"
     )}>
       <div className="flex justify-between items-start mb-4">
         <span className="text-textMuted font-medium">{title}</span>
-        <div className="p-2 bg-background rounded-lg border border-muted">
+        <div className="p-3 glass-icon-well shadow-sm">
           {icon}
         </div>
       </div>

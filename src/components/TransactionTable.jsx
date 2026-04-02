@@ -53,25 +53,25 @@ const TransactionTable = () => {
 
   return (
     <div className="flex flex-col h-full animate-fade-in">
-      <div className="p-6 border-b border-muted flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div className="p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <h2 className="text-xl font-medium">Recent Transactions</h2>
         
-        <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
-          <div className="relative flex-1 sm:w-48">
+        <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+          <div className="relative flex-1 sm:w-[220px]">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-textMuted" />
             <input 
               type="text" 
               placeholder="Search..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-background border border-muted rounded-lg pl-9 pr-4 py-2 text-sm focus:outline-none focus:border-accent transition-colors"
+              className="w-full glass-input pl-10 pr-4 py-2 text-sm"
             />
           </div>
           
           <select 
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
-            className="bg-background border border-muted rounded-lg px-4 py-2 text-sm outline-none focus:border-accent transition-colors"
+            className="glass-input px-4 py-2 text-sm"
           >
             <option value="all">All</option>
             <option value="income">Income</option>
@@ -81,7 +81,7 @@ const TransactionTable = () => {
           <button 
             onClick={handleExportCSV}
             title="Export CSV"
-            className="flex items-center gap-2 bg-background border border-muted hover:border-accent hover:text-accent font-medium px-3 py-2 rounded-lg text-sm transition-colors"
+            className="glass-btn px-4 py-2 gap-2 text-sm font-semibold"
           >
             <Download className="w-4 h-4" /> CSV
           </button>
@@ -89,7 +89,7 @@ const TransactionTable = () => {
           <button 
             onClick={handleExportJSON}
             title="Export JSON"
-            className="flex items-center gap-2 bg-background border border-muted hover:border-accent hover:text-accent font-medium px-3 py-2 rounded-lg text-sm transition-colors"
+            className="glass-btn px-4 py-2 gap-2 text-sm font-semibold"
           >
             <Download className="w-4 h-4" /> JSON
           </button>
@@ -97,7 +97,7 @@ const TransactionTable = () => {
           {role === 'admin' && (
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="flex items-center gap-2 bg-accent hover:bg-[#e66e00] text-black font-semibold px-4 py-2 rounded-lg text-sm transition-colors"
+              className="glass-accent px-5 py-2 gap-2 font-bold text-sm"
             >
               <Plus className="w-4 h-4" /> Add
             </button>
@@ -105,9 +105,9 @@ const TransactionTable = () => {
         </div>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full text-left text-sm whitespace-nowrap">
-          <thead className="bg-background/50 text-textMuted">
+      <div className="overflow-x-auto px-2">
+        <table className="w-full text-left text-sm whitespace-nowrap border-collapse">
+          <thead className="text-textMuted">
             <tr>
               <th className="px-6 py-4 font-medium">Date</th>
               <th className="px-6 py-4 font-medium">Description</th>
@@ -116,14 +116,14 @@ const TransactionTable = () => {
               {role === 'admin' && <th className="px-6 py-4 font-medium text-center">Action</th>}
             </tr>
           </thead>
-          <tbody className="divide-y divide-muted">
+          <tbody className="space-y-2">
             {filteredTransactions.length > 0 ? (
               filteredTransactions.map((tx) => (
-                <tr key={tx.id} className="hover:bg-background/30 transition-colors">
+                <tr key={tx.id} className="transition-colors border-b border-muted/30 hover:bg-background/50">
                   <td className="px-6 py-4 text-textMuted">{new Date(tx.date).toLocaleDateString()}</td>
                   <td className="px-6 py-4 font-medium">{tx.description}</td>
                   <td className="px-6 py-4">
-                    <span className="bg-muted px-2 py-1 rounded text-xs">{tx.category}</span>
+                    <span className="glass-input px-3 py-1.5 text-xs font-semibold shadow-none">{tx.category}</span>
                   </td>
                   <td className={`px-6 py-4 text-right font-medium ${tx.type === 'income' ? 'text-green-500' : 'text-textPrimary'}`}>
                     {tx.type === 'income' ? '+' : '-'}${tx.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}
@@ -132,7 +132,7 @@ const TransactionTable = () => {
                     <td className="px-6 py-4 text-center">
                       <button 
                         onClick={() => deleteTransaction(tx.id)}
-                        className="text-textMuted hover:text-red-500 transition-colors p-1"
+                        className="text-textMuted glass-btn p-2 hover:text-red-500 mx-auto"
                         aria-label="Delete transaction"
                       >
                         <Trash2 className="w-4 h-4" />

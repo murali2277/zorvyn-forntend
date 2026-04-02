@@ -36,15 +36,14 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fade-in">
-      <div className="bg-card w-full max-w-md p-6 rounded-2xl border border-muted shadow-xl animate-slide-up relative mt-[-5%] overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1 bg-accent"></div>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-md animate-fade-in">
+      <div className="glass-card w-full max-w-md p-8 animate-slide-up relative mt-[-5%] overflow-hidden">
         <button 
           onClick={onClose} 
-          className="absolute right-4 top-4 p-1 rounded-md text-textMuted hover:bg-muted hover:text-textPrimary transition-colors"
+          className="absolute right-6 top-6 p-2 rounded-full glass-layer text-textMuted hover:text-accent transition-colors"
           aria-label="Close Modal"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
         
         <h2 className="text-xl font-semibold mb-6">Add Transaction</h2>
@@ -57,7 +56,7 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
               required
               value={description}
               onChange={e => setDescription(e.target.value)}
-              className="w-full bg-background border border-muted rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-accent transition-colors text-textPrimary"
+              className="w-full glass-input px-4 py-3 text-sm"
               placeholder="e.g. Groceries"
             />
           </div>
@@ -72,7 +71,7 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
                 step="0.01"
                 value={amount}
                 onChange={e => setAmount(e.target.value)}
-                className="w-full bg-background border border-muted rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-accent transition-colors text-textPrimary"
+                className="w-full glass-input px-4 py-3 text-sm"
                 placeholder="25.00"
               />
             </div>
@@ -83,7 +82,7 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
                 required
                 value={date}
                 onChange={e => setDate(e.target.value)}
-                className="w-full bg-background border border-muted rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-accent transition-colors text-textPrimary"
+                className="w-full glass-input px-4 py-3 text-sm text-textPrimary"
               />
             </div>
           </div>
@@ -94,7 +93,7 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
               <select 
                 value={type}
                 onChange={e => setType(e.target.value)}
-                className="w-full bg-background border border-muted rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-accent transition-colors text-textPrimary"
+                className="w-full glass-input px-4 py-3 text-sm text-textPrimary"
               >
                 <option value="expense">Expense</option>
                 <option value="income">Income</option>
@@ -107,23 +106,23 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
                 required
                 value={category}
                 onChange={e => setCategory(e.target.value)}
-                className="w-full bg-background border border-muted rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-accent transition-colors text-textPrimary"
+                className="w-full glass-input px-4 py-3 text-sm text-textPrimary"
                 placeholder="e.g. Food"
               />
             </div>
           </div>
           
-          <div className="pt-6 flex justify-end gap-3">
+          <div className="pt-6 flex justify-end gap-4">
             <button 
               type="button" 
               onClick={onClose}
-              className="px-4 py-2 rounded-lg text-sm font-medium hover:bg-muted text-textPrimary transition-colors"
+              className="px-6 py-3 glass-btn font-medium"
             >
               Cancel
             </button>
             <button 
               type="submit"
-              className="px-5 py-2 rounded-lg text-sm font-medium bg-accent hover:bg-[#e66e00] text-black shadow-lg shadow-accent/20 transition-all active:scale-95"
+              className="px-6 py-3 glass-accent font-bold"
             >
               Save Transaction
             </button>

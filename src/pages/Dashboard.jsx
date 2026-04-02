@@ -16,7 +16,7 @@ const Dashboard = () => {
   return (
     <div className="max-w-7xl mx-auto p-6 space-y-8">
       {/* Header */}
-      <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-muted pb-6 animate-fade-in">
+      <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 animate-fade-in">
         <div>
           <h1 className="text-3xl font-semibold tracking-tight">Finance Overview</h1>
           <p className="text-textMuted mt-1">Manage and track your financials seamlessly.</p>
@@ -48,14 +48,14 @@ const Dashboard = () => {
       </section>
 
       {/* Charts Section */}
-      <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-auto min-h-[350px] animate-slide-up" style={{ animationDelay: '0.2s' }}>
-        <div className="lg:col-span-2 bg-card border border-muted rounded-2xl p-6 shadow-sm">
+      <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-auto min-h-[350px] animate-slide-up" style={{ animationDelay: '0.2s' }}>
+        <div className="lg:col-span-2 glass-card p-6">
           <h2 className="text-xl font-medium mb-4">Balance Trend</h2>
           <div className="h-[250px]">
             <BalanceChart />
           </div>
         </div>
-        <div className="bg-card border border-muted rounded-2xl p-6 shadow-sm">
+        <div className="glass-card p-6">
           <h2 className="text-xl font-medium mb-4">Expenses by Category</h2>
           <div className="h-[250px]">
             <CategoryChart />
@@ -64,11 +64,11 @@ const Dashboard = () => {
       </section>
 
       {/* Bottom Section */}
-      <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-slide-up" style={{ animationDelay: '0.3s' }}>
-        <div className="lg:col-span-2 bg-card border border-muted rounded-2xl shadow-sm overflow-hidden">
+      <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-slide-up" style={{ animationDelay: '0.3s' }}>
+        <div className="lg:col-span-2 glass-card overflow-hidden pb-4">
           <TransactionTable />
         </div>
-        <div className="bg-card border border-muted rounded-2xl p-6 shadow-sm">
+        <div className="glass-card p-6">
           <Insights />
         </div>
       </section>
