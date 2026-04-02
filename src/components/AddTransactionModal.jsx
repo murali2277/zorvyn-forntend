@@ -18,7 +18,7 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
     if (!description || !amount || !category || !date) return;
     
     addTransaction({
-      id: Math.random().toString(36).substring(2, 9), // simple unique id generator
+      id: Math.random().toString(36).substring(2, 9),
       description,
       amount: parseFloat(amount),
       category,
@@ -26,7 +26,7 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
       date
     });
     
-    // Reset form upon successful submission
+
     setDescription('');
     setAmount('');
     setCategory('');

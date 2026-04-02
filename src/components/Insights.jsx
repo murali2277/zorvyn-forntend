@@ -6,7 +6,7 @@ const Insights = () => {
   const { transactions, getTotalIncome, getTotalExpenses } = useStore();
 
   const insightData = useMemo(() => {
-    // Highest spending category
+
     const expenses = transactions.filter(t => t.type === 'expense');
     const categoryTotals = expenses.reduce((acc, curr) => {
       acc[curr.category] = (acc[curr.category] || 0) + curr.amount;

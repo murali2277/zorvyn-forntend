@@ -30,7 +30,7 @@ const CategoryChart = () => {
     return Object.keys(categoryTotals).map((key) => ({
       name: key,
       value: categoryTotals[key],
-    })).sort((a, b) => b.value - a.value); // sort largest first
+    })).sort((a, b) => b.value - a.value);
   }, [transactions]);
 
   if (chartData.length === 0) {

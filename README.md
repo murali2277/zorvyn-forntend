@@ -19,6 +19,23 @@ A sleek, hyper-modern finance dashboard built with a custom **Glassmorphism** de
 - **State**: [Zustand](https://github.com/pmndrs/zustand)
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Visualizations**: [Recharts](https://recharts.org/)
+- **Testing**: [Vitest](https://vitest.dev/) + [React Testing Library](https://testing-library.com/)
+
+##  Testing
+
+We use **Vitest** alongside **React Testing Library** (and `jsdom`) for robust unit testing to ensure our components are reliable. Our codebase is meticulously stripped of unnecessary comments, maintaining a clean, human-written feel, and ensuring focus remains solely on the core logic and tests.
+
+To run tests in watch mode with the interactive Vitest UI:
+
+```bash
+npm run test:ui
+```
+
+To run the standard test suite in the console:
+
+```bash
+npm test
+```
 
 ##  Local Quick Start
 

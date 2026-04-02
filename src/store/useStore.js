@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { initialTransactions } from '../data/mockData';
 
 const useStore = create((set, get) => ({
-  theme: 'dark', // default to dark theme
+  theme: 'dark',
   toggleTheme: () => set((state) => {
     const newTheme = state.theme === 'dark' ? 'light' : 'dark';
     if (newTheme === 'dark') {
@@ -13,7 +13,7 @@ const useStore = create((set, get) => ({
     return { theme: newTheme };
   }),
 
-  role: 'admin', // 'viewer' | 'admin'
+  role: 'admin',
   setRole: (role) => set({ role }),
 
   transactions: initialTransactions,
@@ -22,7 +22,7 @@ const useStore = create((set, get) => ({
     transactions: state.transactions.filter(t => t.id !== id)
   })),
 
-  // Computed state
+
   getTotalIncome: () => get().transactions
     .filter(t => t.type === 'income')
     .reduce((sum, t) => sum + t.amount, 0),

@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-6 space-y-8">
-      {/* Header */}
+
       <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 animate-fade-in">
         <div>
           <h1 className="text-3xl font-semibold tracking-tight">Finance Overview</h1>
@@ -27,7 +27,7 @@ const Dashboard = () => {
         </div>
       </header>
 
-      {/* Summary Cards */}
+
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-slide-up" style={{ animationDelay: '0.1s' }}>
         <SummaryCard 
           title="Total Balance" 
@@ -47,7 +47,7 @@ const Dashboard = () => {
         />
       </section>
 
-      {/* Charts Section */}
+
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-auto min-h-[350px] animate-slide-up" style={{ animationDelay: '0.2s' }}>
         <div className="lg:col-span-2 glass-card p-6">
           <h2 className="text-xl font-medium mb-4">Balance Trend</h2>
@@ -63,7 +63,7 @@ const Dashboard = () => {
         </div>
       </section>
 
-      {/* Bottom Section */}
+
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-slide-up" style={{ animationDelay: '0.3s' }}>
         <div className="lg:col-span-2 glass-card overflow-hidden pb-4">
           <TransactionTable />
