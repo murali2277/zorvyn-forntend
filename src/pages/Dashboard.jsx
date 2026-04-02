@@ -3,6 +3,7 @@ import useStore from '../store/useStore';
 import SummaryCard from '../components/SummaryCard';
 import RoleSwitcher from '../components/RoleSwitcher';
 import ThemeToggle from '../components/ThemeToggle';
+import GithubRepoLink from '../components/GithubRepoLink';
 import TransactionTable from '../components/TransactionTable';
 import Insights from '../components/Insights';
 import BalanceChart from '../components/charts/BalanceChart';
@@ -22,6 +23,7 @@ const Dashboard = () => {
           <p className="text-textMuted mt-1">Manage and track your financials seamlessly.</p>
         </div>
         <div className="flex items-center gap-2">
+          <GithubRepoLink />
           <RoleSwitcher />
           <ThemeToggle />
         </div>
