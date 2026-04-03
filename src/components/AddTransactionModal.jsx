@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import useStore from '../store/useStore';
 import { X } from 'lucide-react';
+import CustomSelect from './CustomSelect';
 
 const AddTransactionModal = ({ isOpen, onClose }) => {
   const addTransaction = useStore(state => state.addTransaction);
@@ -91,14 +92,15 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-textMuted mb-2">Type</label>
-              <select 
+              <CustomSelect 
                 value={type}
-                onChange={e => setType(e.target.value)}
-                className="w-full glass-input px-4 py-3 text-sm text-textPrimary"
-              >
-                <option value="expense">Expense</option>
-                <option value="income">Income</option>
-              </select>
+                onChange={setType}
+                options={[
+                  { value: 'expense', label: 'Expense' },
+                  { value: 'income', label: 'Income' }
+                ]}
+                align="left"
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-textMuted mb-2">Category</label>

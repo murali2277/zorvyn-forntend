@@ -22,11 +22,13 @@ const CustomSelect = ({ value, onChange, options, icon: Icon, align = 'right' })
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 bg-transparent border-none outline-none text-sm font-medium py-1 px-2 cursor-pointer text-textPrimary w-full text-left rounded-lg transition-colors hover:bg-textPrimary/5"
+        className="flex items-center justify-between gap-2 px-4 py-2 bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-800 rounded-lg text-sm text-slate-800 dark:text-white font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-all w-full outline-none cursor-pointer"
       >
-        {Icon && <Icon className="w-5 h-5 text-textMuted" />}
-        <span className="whitespace-nowrap">{selectedOption.label}</span>
-        <ChevronDown className="w-4 h-4 text-textMuted ml-0.5" />
+        <div className="flex items-center gap-1.5">
+          {Icon && <Icon className="w-5 h-5 text-textMuted" />}
+          <span className="whitespace-nowrap">{selectedOption.label}</span>
+        </div>
+        <ChevronDown className="w-4 h-4 text-textMuted flex-shrink-0" />
       </button>
 
       {isOpen && (

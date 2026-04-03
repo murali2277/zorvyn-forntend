@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import useStore from '../store/useStore';
 import { Search, Plus, Trash2, Download } from 'lucide-react';
 import AddTransactionModal from './AddTransactionModal';
+import CustomSelect from './CustomSelect';
 
 const TransactionTable = () => {
   const { transactions, role, deleteTransaction } = useStore();
@@ -68,15 +69,18 @@ const TransactionTable = () => {
             />
           </div>
           
-          <select 
-            value={filterType}
-            onChange={(e) => setFilterType(e.target.value)}
-            className="glass-input px-4 py-2 text-sm"
-          >
-            <option value="all">All</option>
-            <option value="income">Income</option>
-            <option value="expense">Expense</option>
-          </select>
+          <div className="w-[120px]">
+            <CustomSelect 
+              value={filterType}
+              onChange={setFilterType}
+              options={[
+                { value: 'all', label: 'All' },
+                { value: 'income', label: 'Income' },
+                { value: 'expense', label: 'Expense' }
+              ]}
+              align="left"
+            />
+          </div>
 
           <button 
             onClick={handleExportCSV}
